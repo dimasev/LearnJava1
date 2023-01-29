@@ -1,6 +1,10 @@
 package main.java.by.itacademy.oop.service.impl;
 
+import main.java.by.itacademy.oop.creator.CabbageFactory;
+import main.java.by.itacademy.oop.creator.CucumberFactory;
+import main.java.by.itacademy.oop.creator.TomatoFactory;
 import main.java.by.itacademy.oop.entity.*;
+import main.java.by.itacademy.oop.exception.CustomException;
 import main.java.by.itacademy.oop.service.SaladService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -46,7 +50,7 @@ public class SaladServiceImpl implements SaladService {
     }
 
     @Override
-    public void preparftionOfVegetables(List <Vegetables> notVerifiedVegetables) {
+    public void preparationOfVegetables(List <Vegetables> notVerifiedVegetables) {
         List<Vegetables> vegetables= notVerifiedVegetables;
         for(Vegetables vb: vegetables){
             switch (vb.getName()){
@@ -60,19 +64,38 @@ public class SaladServiceImpl implements SaladService {
     @Override
     public void searchingForVegetablesByCalories(Salad salad, int calories) {
         List<Vegetables> list = salad.getVegetables();
-        List<Vegetables> list1 = new ArrayList<>();
-        Vegetables vegetables = null;
+        List<Vegetables> listFoundVegetables = new ArrayList<>();
         for(Vegetables vb:list){
             if (vb.getCalories()==calories){
-                list1.add(vb);
+                listFoundVegetables.add(vb);
             }
         }
-        if (list1.size() != 0){
-            for (Vegetables vb: list1)
-                System.out.println(vb);
+        if (listFoundVegetables.size() != 0){
+            for (Vegetables vb: listFoundVegetables){
+                logger.log(Level.INFO, vb);}
         }else{
-            logger.log(Level.ERROR, "No vegetables");
+            logger.log(Level.WARN, "No vegetables");
         }
+    }
+
+    @Override
+    public List<Vegetables> createBillet(List<String> stringVegetable) throws CustomException{
+        List<Vegetables> billet = new ArrayList<>();
+        CucumberFactory cucumberFactory = new CucumberFactory();
+        TomatoFactory tomatoFactory = new TomatoFactory();
+        CabbageFactory cabbageFactory = new CabbageFactory();
+        for (String str : stringVegetable) {
+            String[] strings = str.split("\\s+");
+            switch (strings[0]) {
+                case "Cucumber" -> billet.add(cucumberFactory.createVegetables(strings));
+                case "Cabbage" -> billet.add(cabbageFactory.createVegetables(strings));
+                case "Tomato" -> billet.add(tomatoFactory.createVegetables(strings));
+                default -> {
+                    break;
+                }
+            }
+        }
+        return billet;
     }
 
 }

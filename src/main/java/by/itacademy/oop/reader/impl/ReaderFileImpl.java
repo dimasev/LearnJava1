@@ -14,18 +14,17 @@ import java.util.List;
 
 public class ReaderFileImpl implements ReaderFile {
     static Logger logger = LogManager.getLogger();
-    final static String STR_REGEX = "\\n+";
+    static final  String STR_REGEX = "\\n+";
 
     public List<String> readFile(File file) throws CustomException {
 
         List<String> list = new ArrayList<String>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))){
             String str;
             while ((str = reader.readLine()) != null) {
                 String[] strings = str.split(STR_REGEX);
-                for (String str1 : strings) {
-                    list.add(str1);
+                for (String s : strings) {
+                    list.add(s);
                 }
             }
         } catch (IOException e) {

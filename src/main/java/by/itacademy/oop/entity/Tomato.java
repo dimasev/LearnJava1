@@ -1,5 +1,6 @@
 package main.java.by.itacademy.oop.entity;
 
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class Tomato extends Vegetables{
@@ -23,5 +24,23 @@ public class Tomato extends Vegetables{
 
     public void setStateOfPurity(boolean stateOfPurity) {
         this.stateOfPurity = stateOfPurity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Tomato tomato = (Tomato) o;
+
+        return stateOfPurity == tomato.stateOfPurity;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (stateOfPurity ? 1 : 0);
+        return result;
     }
 }
