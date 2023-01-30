@@ -52,4 +52,8 @@ public class ArrayObject {
         result = 31 * result + Arrays.hashCode(array);
         return result;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

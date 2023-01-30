@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 21:13:08.281 [Main] INFO  Main - 17674
 21:13:08.289 [SaladServiceImpl] WARN  SaladServiceImpl - No vegetables
 21:14:20.947 [Main] INFO  Main - 17674
@@ -12,3 +13,11 @@
 22:19:08.070 [Main] INFO  Main - Tomato[Vegetables, name='Tomato', weight=1500, calories=5263, price=4529, stateOfPurity=true]
 22:19:08.071 [Main] INFO  Main - Cabbage[Vegetables, name='Cabbage', weight=1400, calories=2902, price=4712, stateOfFreshess=true]
 22:19:08.072 [SaladServiceImpl] WARN  SaladServiceImpl - No vegetables
+=======
+13:31:19.616 [Main] INFO  Main - 17674
+13:31:19.627 [Main] INFO  Main - Cucumber[Vegetables, name='Cucumber', weight=1000, calories=3123, price=4214, stateOfPeel=true]
+13:31:19.628 [Main] INFO  Main - Cucumber[Vegetables, name='Cucumber', weight=1000, calories=3123, price=4219, stateOfPeel=true]
+13:31:19.628 [Main] INFO  Main - Tomato[Vegetables, name='Tomato', weight=1500, calories=5263, price=4529, stateOfPurity=true]
+13:31:19.629 [Main] INFO  Main - Cabbage[Vegetables, name='Cabbage', weight=1400, calories=2902, price=4712, stateOfFreshess=true]
+13:31:19.629 [SaladServiceImpl] WARN  SaladServiceImpl - No vegetables
+>>>>>>> origin/master

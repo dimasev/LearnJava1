@@ -9,7 +9,11 @@
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
+<<<<<<< HEAD
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%c{3}] %-5level %logger{3} - %msg%n"/>
+=======
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%c{1}] %-5level %logger{36} - %msg%n"/>
+>>>>>>> origin/master
         </Console>
 
         <RollingFile name="FileRolling" filename="logs/text_log.log" append="true"
