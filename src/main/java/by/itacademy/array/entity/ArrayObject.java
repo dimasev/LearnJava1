@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class ArrayObject {
     private int idArray;
     private int[] array;
+    private int i = 0;
 
     public ArrayObject(int[] array) {
         this.idArray = GenerateId.generateNextId();
@@ -52,8 +53,5 @@ public class ArrayObject {
         result = 31 * result + Arrays.hashCode(array);
         return result;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
+

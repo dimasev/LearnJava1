@@ -6,5 +6,5 @@ import java.io.File;
 import java.util.List;
 
 public interface ReaderArray {
-    int [][] readArray(File file) throws CustomException;
+    void readArray(File file) throws CustomException;
 }
