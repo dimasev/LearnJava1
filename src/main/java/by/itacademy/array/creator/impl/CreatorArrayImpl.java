@@ -6,7 +6,7 @@ import main.java.by.itacademy.array.entity.ArrayObject;
 public class CreatorArrayImpl implements CreatorArray {
 
     @Override
-    public void  creatorArray(int[] array) {
-        new ArrayObject(array);
+    public ArrayObject  creatorArray(int[] array) {
+        return new ArrayObject(array);
     }
 }
